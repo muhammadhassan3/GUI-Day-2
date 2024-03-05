@@ -17,9 +17,31 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if(MessageBox.Show("Apakah anda yakin akan keluar?", "Konfirmasi", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = tbUserId.Text.Trim();
+            string password = tbPassword.Text.Trim();
+
+            if(username =="Hassan" &&  password == "hassan")
+            {
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("User ID dan Password yang kamu masukkan tidak tepat.", "Pemberitahuan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbUserId.SelectAll();
+                tbUserId.Focus();
+            }
         }
     }
 }
