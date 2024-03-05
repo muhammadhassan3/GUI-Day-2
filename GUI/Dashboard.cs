@@ -16,5 +16,18 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void kesiswaanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            Close();
+        }
     }
 }
